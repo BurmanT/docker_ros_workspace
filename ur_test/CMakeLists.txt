@@ -10,6 +10,8 @@ find_package(geometry_msgs REQUIRED)
 
 install(PROGRAMS
   src/move_ur3.py
+  src/joy_teleop.py
+  src/replay_demo.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(DIRECTORY                      # ← added
