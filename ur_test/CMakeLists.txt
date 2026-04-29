@@ -12,6 +12,7 @@ install(PROGRAMS
   src/move_ur3.py
   src/joy_teleop.py
   src/replay_demo.py
+  src/goal_extractor.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(DIRECTORY                      # ← added
