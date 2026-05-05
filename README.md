@@ -1,3 +1,7 @@
+# Robot Navigation and Arm Control
+
+This workspace contains setup instructions for a system where a Turtlebot is sent to two goal locations based on a map of MULIP. It uses Nav2 to navigate to those locations. Once the Turtlebot arrives at a goal, it publishes to `/turtlebot_goal_index` to indicate which goal it reached. The Kinova arm is subscribed to this topic and uses MoveIt to move to the corresponding location of the Turtlebot.
+
 # Kinova Arm
 
 1. Set up connection to Kinova: [ros2_kortex](https://github.com/Kinovarobotics/ros2_kortex)
