@@ -1,13 +1,13 @@
-# Robot Navigation and Arm Control
+# FetchReach Robot Navigation and Arm Control
 
 ## Overview
-The goal of this workspace is to recreate a FetchReach scenario using a Turtlebot and a Kinova arm. The Turtlebot naviates to a location around a table where the Kinova arm is placed and the goal is for the arm to reach above where the Turtlebot has moved to. 
+The goal of this workspace is to recreate a FetchReach scenario using a Turtlebot and a Kinova arm. The Turtlebot navigates to a location around a table where the Kinova arm is placed and the goal is for the arm to reach above where the Turtlebot has moved to. Ideally if there is a force sensor on the Turtlebot, then this can be used to confirm that the arm has reached the Turtlebot and then it can move to a new goal location. 
 
 This workspace contains setup instructions for a system where a Turtlebot is sent to two goal locations based on a map of MULIP. It uses Nav2 to navigate to those locations. Once the Turtlebot arrives at a goal, it publishes to `/turtlebot_goal_index` to indicate which goal it reached. The Kinova arm is subscribed to this topic and uses MoveIt to move to the corresponding location of the Turtlebot.
 
 1. [MoveIt](https://github.com/BurmanT/docker_ros_workspace/blob/main/ur_test/src/move_ur3.py): Subscribes to `/turtlebot_goal_index` and based on the goal that the Turtlebot has moved to, uses MoveIt to move arm to specific poses. 
 2. [Nav2](https://github.com/BurmanT/docker_ros_workspace/blob/main/turtlebot_nav/tanu_workspace_april30/random_navigator.py): Uses `/next_goal` to send the Turtlebot to navigate to two goal locations in MULIP. Once it has successfully reached the location, publishes to `/turtlebot_goal_index` the specific index of the goal location it reached. 
-3. Perception with [Lidar](https://github.com/BurmanT/docker_ros_workspace/blob/main/turtlebot_nav/tanu_workspace_april30/ArmProximity.py) on Turtlebot/ Custom Node: This script is not used in the demo but it is a custom ROS2 node that uses the LiDAR sensor on the Turtlebot to determine if there is an obstacle/arm in front of the Turtlebot. Ideally this would be used to confirm if the arm has reached above the Turtlebot once the Turtlebot arrives at a goal location. However, in the future, a force sensor may be better fit to confirm that the arm reaches above the Turtlebot since the Kinova arm is placed on a table and the Turtlebot is on the ground.  
+3. Perception with [Lidar](https://github.com/BurmanT/docker_ros_workspace/blob/main/turtlebot_nav/tanu_workspace_april30/ArmProximity.py) on Turtlebot/ Custom Node: This script is not used in the demo but it is a custom ROS2 node that uses the LiDAR sensor on the Turtlebot to determine if there is an obstacle/arm in front of the Turtlebot. Ideally this would be used to confirm if the arm has reached above the Turtlebot once the Turtlebot arrives at a goal location. However, in the future, a force sensor would be better fit to confirm that the arm reaches above the Turtlebot since the Kinova arm is placed on a table and the Turtlebot is on the ground.  
 
 # Kinova Arm
 
